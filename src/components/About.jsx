@@ -72,7 +72,7 @@ const About = () => {
       <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 ml-1 text-secondary text-base lg:text-lg max-w-3xl leading-normal lg:leading-[30px] text-justify"
-      >I am an 2024 undergrad in computer science engineering who has solved 500+ questions on LeetCode, GeeksforGeeks and more to improve my data structures and algorithms. I am skilled JavaScript, C/C++ and expertise in frameworks like React, Node.js. I am a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems also As a hobby, I teach C/C++ programming. Currently looking for software development engineering internship (SDE) / web dev internship/ Full-Time opportunities.
+      >I am an 2024 undergrad in computer science engineering currently an SDE Intern at Medicvisor also having the Internship experience as SDE Intern at RecruitNXT and Technical Intern at GeeksforGeeks. I solved 500+ questions on LeetCode, GeeksforGeeks and more to improve my data structures and algorithms. I am skilled in JavaScript, React.js, Node.js, Express.js, MongoDB, MySql, C/C++ Programming. I am a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems also As a hobby, I teach C/C++ programming. Currently looking for Full Time software development engineering(SDE)/ Frontend Developer/ Backend Developer/ Full-Stack Developer roles.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

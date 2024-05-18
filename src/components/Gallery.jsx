@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import imag1 from "../assets/Gallery/i1.jpeg";
 import imag2 from "../assets/Gallery/i2.jpg";
@@ -22,10 +22,12 @@ import imag19 from "../assets/Gallery/i19.jpg";
 import imag20 from "../assets/Gallery/i20.jpeg";
 import imag21 from "../assets/Gallery/i21.jpeg";
 import imag22 from "../assets/Gallery/i22.jpg";
-import imag23 from "../assets/Gallery/i23.png";
+import imag24 from "../assets/Gallery/i24.jpeg";
+import imag25 from "../assets/Gallery/i25.jpeg";
 
 import "../components/Styles/gallery.css";
 import Navbar from "./Navbar";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 const Gallery = () => {
     let data = [
@@ -139,11 +141,31 @@ const Gallery = () => {
             imgSrc: imag22,
             caption: "Certificate distribution of Coding competition by Coding Club",
         },
+        {
+            id: 24,
+            imgSrc: imag24,
+            caption: "Farewell program organized by Dept. Of CSE",
+        },
+        {
+            id: 25,
+            imgSrc: imag25,
+            caption: "Work Planning of the startup IIT Academy",
+        },
 
     ]
 
+    const [loading, setLoading] = useState(true);
     const [model, setModel] = useState(false);
     const [tempImgIndex, setTempImgIndex] = useState(0);
+
+    useEffect(() => {
+        const loadGallery = async () => {
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+            setLoading(false);
+            document.title = "My Gallery";
+        };
+        loadGallery();
+    }, []);
 
     const openModal = (index) => {
         setTempImgIndex(index);
@@ -166,26 +188,31 @@ const Gallery = () => {
 
     return (
         <>
-            {/* Assume Navbar component is correctly implemented */}
-            <Navbar />
-            <div className={model ? 'model open' : 'model'}>
-                <img src={data[tempImgIndex]?.imgSrc} alt="enlarged" />
-                {/* CloseIcon component to close the modal */}
-                <CancelPresentationIcon onClick={closeModal} />
-                <p>{data[tempImgIndex]?.caption}</p>
-                {/* Navigation for previous and next images */}
-                <div className="nav-buttons">
-                        <button className="prev-btn" onClick={prevImg}>Prev</button>
-                        <button className="next-btn" onClick={nextImg}>Next</button>
+            {loading ? (
+                <div className="loader-container">
+                    <PacmanLoader color={'#915EFF'} loading={loading} size={50} />
                 </div>
-            </div>
-            <div style={{ marginTop: "10px" }} className="gallery">
-                {data.map((item, index) => (
-                    <div className="pics" key={index} onClick={() => openModal(index)}>
-                        <img src={item.imgSrc} style={{ width: '100%' }} alt={`img-${item.id}`} />
+            ) : (
+                <>
+                    <Navbar />
+                    <div className={model ? 'model open' : 'model'}>
+                        <img src={data[tempImgIndex]?.imgSrc} alt="enlarged" />
+                        <CancelPresentationIcon onClick={closeModal} />
+                        <p>{data[tempImgIndex]?.caption}</p>
+                        <div className="nav-buttons">
+                            <button className="prev-btn" onClick={prevImg}>Prev</button>
+                            <button className="next-btn" onClick={nextImg}>Next</button>
+                        </div>
                     </div>
-                ))}
-            </div>
+                    <div style={{ marginTop: "10px" }} className="gallery">
+                        {data.map((item, index) => (
+                            <div className="pics" key={index} onClick={() => openModal(index)}>
+                                <img src={item.imgSrc} style={{ width: '100%' }} alt={`img-${item.id}`} />
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
         </>
     );
 };

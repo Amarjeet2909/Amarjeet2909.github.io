@@ -11,7 +11,7 @@ const Hero = () => {
   useEffect(() => {
     // Configuration for the Typed instance
     const options = {
-      strings: ["Software Developer", "Web Developer", "Technical Content writer"],
+      strings: ["Software Developer", "Frontend Developer", "Backend Developer", "Technical Content writer"],
       typeSpeed: 100,
       loop: true,
     };
@@ -46,7 +46,7 @@ const Hero = () => {
             Hi, I'm <span className="text-[#915EFF]">Amarjeet</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            CSE Undergrad'24 <br className="sm:block hidden" />
+            SDE Intern Medicvisor | CSE Undergrad'24 <br className="sm:block hidden" />
           </p>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}><span class="typing"></span></p>
         </div>

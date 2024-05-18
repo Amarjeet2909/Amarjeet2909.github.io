@@ -7,6 +7,7 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import Navbar from "./Navbar";
+import { useEffect } from "react";
 
 const ProjectCard = ({
   index,
@@ -58,6 +59,12 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Project's";
+  }, []);
+  
   return (
     <>
      <Navbar />

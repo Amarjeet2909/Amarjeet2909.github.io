@@ -1,5 +1,5 @@
 import Tilt from "react-tilt";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -59,6 +59,11 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Work Experience";
+  }, []);
+
   return (
     <>
       <Navbar />

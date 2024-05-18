@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Navbar from './Navbar';
 import '../components/Styles/achievement.css';
 import AnimatedSection from './AnimatedSection';
@@ -26,6 +26,11 @@ import github from "../assets/github.png";
 import gmail from "../assets/gmail.png";
 
 const Achievement = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Achievement's";
+  }, []);
 
   const courses = [
     { id: 1, imageSrc: i2, link: "https://www.udemy.com/certificate/UC-6bda9fe4-5f23-43ef-a77c-926c7c41e31c/"},
